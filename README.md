@@ -29,9 +29,32 @@ DocMind is a demonstration of a Retrieval-Augmented Generation (RAG) architectur
    source venv/bin/activate
    pip install -r requirements.txt
    alembic upgrade head
+   cd ..
    ```
 
-4. Run the app:
+4. Setup frontend dependencies:
+   ```bash
+   cd frontend
+   npm install
+   cd ..
+   ```
+
+5. Run the app:
+   If you have `make` installed, you can start both services concurrently:
    ```bash
    make start
    ```
+
+   Otherwise, run them in separate terminal windows:
+   - **Backend**:
+     ```bash
+     cd backend
+     source venv/bin/activate
+     uvicorn app.main:app --reload
+     ```
+   - **Frontend**:
+     ```bash
+     cd frontend
+     npm run dev
+     ```
+
